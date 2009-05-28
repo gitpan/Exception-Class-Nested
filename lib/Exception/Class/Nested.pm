@@ -6,7 +6,7 @@ use Carp;
 use Exception::Class;
 our @ISA = qw(Exception::Class);
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub import {
 	my $class = shift;
@@ -89,7 +89,7 @@ Exception::Class::Nested - Nested declaration of Exception::Class classes
 
 =head1 DESCRIPTION
 
-This is little more than a thin wrapper around the C<use Exception::Class> call. It allows you do nest the class
+This is little more than a thin wrapper around the C<use Exception::Class> call. It allows you to nest the class
 declarations instead of having to repeat the class names in the isa=> parameters. It also allows you to
 define/overload methods in the classes.
 
@@ -105,12 +105,9 @@ Jenda Krynicky, <jenda@krynicky.cz>
 
 =head1 COPYRIGHT
 
-Copyright (c) 2008 Jenda Krynicky.  All rights reserved.  This
+Copyright (c) 2008-2009 Jenda Krynicky.  All rights reserved.  This
 program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
-
-The full text of the license can be found in the LICENSE file included
-with this module.
 
 =cut
 

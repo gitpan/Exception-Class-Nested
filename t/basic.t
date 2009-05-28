@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-
+# this test was takem and modified from the test of Exception::Class version 1.24
 use strict;
 
 use File::Spec;
@@ -270,7 +270,9 @@ sub FieldsException::full_message
 }
 
 # 43 - truth
-{
+SKIP:{
+	skip "Exception::Class newer than 1.27 doesn't support do_trace()", 2 unless $Exception::Class::VERSION <= 1.27;
+
     Bool->do_trace(0);
     eval { Bool->throw( something => [ 1, 2, 3 ] ) };
 
@@ -370,7 +372,10 @@ sub FieldsException::full_message
     ok( $classes{TestException}, 'TestException should be in the return from Classes()' );
 }
 
-{
+
+SKIP: {
+	skip "Exception::Class older than 1.24 doesn't support MaxArgLength()", 2 unless $Exception::Class::VERSION > 1.23;
+
     sub throw2 {  TestException->throw( error => 'dead' ); }
 
     eval { throw2('abcdefghijklmnop') };

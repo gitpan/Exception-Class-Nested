@@ -1,2 +1,6 @@
 0.01 Jul 27, 2008
 	- First version
+
+0.02 May 28, 2009
+	- fix typo in docs
+	- fix the test to handle older versions of Exception::Class
