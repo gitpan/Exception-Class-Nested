@@ -6,7 +6,7 @@ use Carp;
 use Exception::Class;
 our @ISA = qw(Exception::Class);
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 sub import {
 	my $class = shift;

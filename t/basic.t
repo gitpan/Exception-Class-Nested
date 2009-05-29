@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# this test was takem and modified from the test of Exception::Class version 1.24
+# this test was taken and modified from the test of Exception::Class version 1.24
 use strict;
 
 use File::Spec;
@@ -270,10 +270,10 @@ sub FieldsException::full_message
 }
 
 # 43 - truth
-SKIP:{
-	skip "Exception::Class newer than 1.27 doesn't support do_trace()", 2 unless $Exception::Class::VERSION <= 1.27;
+{
+#	skip "Exception::Class newer than 1.27 doesn't support do_trace()", 1 unless $Exception::Class::VERSION <= 1.27;
 
-    Bool->do_trace(0);
+    Bool->do_trace(0) unless $Exception::Class::VERSION <= 1.27;
     eval { Bool->throw( something => [ 1, 2, 3 ] ) };
 
     ok( $@,
@@ -305,7 +305,9 @@ SKIP:{
 }
 
 # 46 - no object refs (deprecated)
-{
+SKIP:{
+	skip "Exception::Class newer than 1.27 doesn't support NoObjectRefs()", 1 unless $Exception::Class::VERSION <= 1.27;
+
     ObjectRefs->NoObjectRefs(0);
 
     eval { Foo->new->bork };
