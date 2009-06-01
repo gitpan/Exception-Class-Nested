@@ -273,7 +273,7 @@ sub FieldsException::full_message
 {
 #	skip "Exception::Class newer than 1.27 doesn't support do_trace()", 1 unless $Exception::Class::VERSION <= 1.27;
 
-    Bool->do_trace(0) unless $Exception::Class::VERSION <= 1.27;
+    Bool->do_trace(0) unless $Exception::Class::VERSION > 1.27;
     eval { Bool->throw( something => [ 1, 2, 3 ] ) };
 
     ok( $@,

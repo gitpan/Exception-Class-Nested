@@ -8,3 +8,6 @@
 0.03 May 29, 2009
 	- skip a deprecated method if Exception::Class is newer than 1.27
 
+0.04 Jun 01, 2009
+	- erm. fix the test script
+
